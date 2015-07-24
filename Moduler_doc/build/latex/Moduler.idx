@@ -1,0 +1,56 @@
+\indexentry{Moduler (module)|hyperpage}{3}
+\indexentry{GMdata (class in Moduler)|hyperpage}{7}
+\indexentry{Correlated() (Moduler.GMdata method)|hyperpage}{7}
+\indexentry{Load\_contacts() (Moduler.GMdata method)|hyperpage}{7}
+\indexentry{Read\_GM() (Moduler.GMdata method)|hyperpage}{7}
+\indexentry{bootstrap\_replicate() (Moduler.GMdata method)|hyperpage}{7}
+\indexentry{GMstats (class in Moduler)|hyperpage}{7}
+\indexentry{Clus\_Power() (Moduler.GMstats method)|hyperpage}{7}
+\indexentry{Compute\_correlations() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{F\_transf() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{GetAglomeratedThreshold() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{LDA() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{Power\_r() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{SigCorrOneMatrix() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{Sigcorr() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{UseCorr() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{UseCov() (Moduler.GMstats method)|hyperpage}{8}
+\indexentry{Z\_fisher() (Moduler.GMstats method)|hyperpage}{9}
+\indexentry{agglomerare\_additive() (Moduler.GMstats method)|hyperpage}{9}
+\indexentry{agglomerare\_mean() (Moduler.GMstats method)|hyperpage}{9}
+\indexentry{GMgraph (class in Moduler)|hyperpage}{9}
+\indexentry{Build\_igraph() (Moduler.GMgraph method)|hyperpage}{9}
+\indexentry{Cluster2File() (Moduler.GMgraph method)|hyperpage}{9}
+\indexentry{Get\_StructProps() (Moduler.GMgraph method)|hyperpage}{9}
+\indexentry{Graph\_Cluster() (Moduler.GMgraph method)|hyperpage}{9}
+\indexentry{Identify\_Singletons() (Moduler.GMgraph method)|hyperpage}{9}
+\indexentry{LDAmerge() (Moduler.GMgraph method)|hyperpage}{9}
+\indexentry{SupportClustering (class in Moduler)|hyperpage}{10}
+\indexentry{AreModneighbours() (Moduler.SupportClustering method)|hyperpage}{10}
+\indexentry{BipartitionAgree() (Moduler.SupportClustering method)|hyperpage}{10}
+\indexentry{DealDimensions() (Moduler.SupportClustering method)|hyperpage}{10}
+\indexentry{FDR\_correction() (Moduler.SupportClustering method)|hyperpage}{10}
+\indexentry{FDRc\_sigtest() (Moduler.SupportClustering method)|hyperpage}{10}
+\indexentry{VectorToEdgeList() (Moduler.SupportClustering method)|hyperpage}{10}
+\indexentry{WriteBoot() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{bipartition\_agreement() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{bootstrap() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{filter\_singletons() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{get\_cluster\_indices() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{if\_bootfile() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{iterative\_permt() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{permt() (Moduler.SupportClustering method)|hyperpage}{11}
+\indexentry{subsetTest() (Moduler.SupportClustering method)|hyperpage}{12}
+\indexentry{twotPermutation() (Moduler.SupportClustering method)|hyperpage}{12}
+\indexentry{write\_permt() (Moduler.SupportClustering method)|hyperpage}{12}
+\indexentry{isFloat() (in module Moduler)|hyperpage}{12}
+\indexentry{rename\_clusters() (in module Moduler)|hyperpage}{12}
+\indexentry{equiclus() (in module Moduler)|hyperpage}{12}
+\indexentry{ellipse() (in module Moduler)|hyperpage}{12}
+\indexentry{pointsInEllipse() (in module Moduler)|hyperpage}{13}
+\indexentry{getEllipses() (in module Moduler)|hyperpage}{13}
+\indexentry{EllipseOverlap() (in module Moduler)|hyperpage}{13}
+\indexentry{Specificity() (in module Moduler)|hyperpage}{13}
+\indexentry{Sensitivity() (in module Moduler)|hyperpage}{13}
+\indexentry{Fscore() (in module Moduler)|hyperpage}{13}
+\indexentry{clus2list() (in module Moduler)|hyperpage}{13}

@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation &mdash; Moduler 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Moduler 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Tutorial" href="Tutorial.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="Moduler.GMdata">
+<em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">GMdata</code><span class="sig-paren">(</span><em>prefix</em>, <em>dimension=3</em>, <em>t='gm'</em>, <em>asdistance=False</em>, <em>contacts=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>GM object that populates GM data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prefix</strong> (<em>string</em>) &#8211; Prefix of your GM file and accompanying files</li>
+<li><strong>dimension</strong> (<em>integer</em>) &#8211; The number of cartesian dimensions to be analyzed. By default is set to 3.</li>
+<li><strong>t</strong> (<em>string</em>) &#8211; Type of input. Either gm or csv, both semicolon delimited files, but the former includes names of the observations in the first field. By default is gm</li>
+<li><strong>asdistance</strong> (<em>boolean</em>) &#8211; whether or not to tranform the data into a distance matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="Moduler.GMdata.Correlated">
+<code class="descname">Correlated</code><span class="sig-paren">(</span><em>GMstatsInstance</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMdata.Correlated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMdata.Correlated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include a GMstats instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>GMstatsInstance</strong> (<em>:class GMstats</em>) &#8211; An instance of the class GMstats</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMdata.Load_contacts">
+<code class="descname">Load_contacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMdata.Load_contacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMdata.Load_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the contacts from file, from PDBstructure or None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMdata.Read_GM">
+<code class="descname">Read_GM</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMdata.Read_GM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMdata.Read_GM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data from a gm (coordinates file) file. The file is a semicolon separated file
+with row names in the first field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMdata.bootstrap_replicate">
+<code class="descname">bootstrap_replicate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMdata.bootstrap_replicate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMdata.bootstrap_replicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a bootstrap replicate of the data</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Moduler.GMstats">
+<em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">GMstats</code><span class="sig-paren">(</span><em>prefix</em>, <em>matrix</em>, <em>dimensions</em>, <em>sample_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include all stats related things with a GM file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prefix</strong> (<em>string</em>) &#8211; Prefix of your GM file and accompanying files</li>
+<li><strong>matrix</strong> (:class <cite>numpy.array</cite>) &#8211; A numpy nd array with the coordinates or info to be analysed. It contains the dimensions as first element, rows and columns follow.</li>
+<li><strong>dimensions</strong> (<em>integer</em>) &#8211; The number of cartesian dimensions to be analyzed. By default is set to 3.</li>
+<li><strong>sample_size</strong> (<em>integer</em>) &#8211; Number of observations</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="Moduler.GMstats.Clus_Power">
+<code class="descname">Clus_Power</code><span class="sig-paren">(</span><em>membership</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.Clus_Power"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.Clus_Power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a power analysis of the clusters by igraph and outputs a table with the proportion 
+of elements above the n required according to significance, power and correlation.
+it can test different clusters that are not in the class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<em>list or string</em>) &#8211; a membership vector in list form or the name of a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.Compute_correlations">
+<code class="descname">Compute_correlations</code><span class="sig-paren">(</span><em>method='fisher'</em>, <em>absolutecov=False</em>, <em>confval=0.95</em>, <em>threshold=0.0</em>, <em>usecov=False</em>, <em>writemat=False</em>, <em>additive=True</em>, <em>power=0.8</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.Compute_correlations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.Compute_correlations" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>method</strong> (<em>string</em>) &#8211; Which method to use for correlation. By default it uses the fisher transformation. Available options are pearson, spearman and fisher.</li>
+<li><strong>confval</strong> (<em>float</em>) &#8211; Define the confidence level (1-alpha) for the correlation test. By default is 0.95. Can take any float value between 0 and 1.</li>
+<li><strong>absolutecov</strong> (<em>boolean</em>) &#8211; Whether or not to use absolute values of the correlation matrix</li>
+<li><strong>power</strong> (<em>float</em>) &#8211; Perform a statistical power analysis with this value as the desired Power (1-type II error). By default 0.8 is used. Can be any float from 0 to 1</li>
+<li><strong>usecov</strong> (<em>boolean</em>) &#8211; Use covariance instead of correlation.</li>
+<li><strong>writemat</strong> &#8211; Write correlation/covariance matrices to file. By default is false. It can take a False, for the aggreatated matrix or cor for the correlation matrix.</li>
+<li><strong>additive</strong> (<em>boolean</em>) &#8211; Use the mean of the correlation in each dimension instead of the euclidean distance to aglomerate the dimensions. The default behaviour is additive.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.F_transf">
+<code class="descname">F_transf</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.F_transf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.F_transf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the Fisher transformation of correlation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.GetAglomeratedThreshold">
+<code class="descname">GetAglomeratedThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.GetAglomeratedThreshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.GetAglomeratedThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get threshold for the n dimensions</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.LDA">
+<code class="descname">LDA</code><span class="sig-paren">(</span><em>membership</em>, <em>which='lms'</em>, <em>ellipses=2.5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.LDA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.LDA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a Linear discriminant analysis of the transposed data. Membership must be an array
+of integers of the same lenght of the number of observations in the data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>membership</strong> (<em>list</em>) &#8211; a list corresponding to memberships of the entries in data</li>
+<li><strong>which</strong> (<em>string</em>) &#8211; Either &#8216;gm&#8217; or &#8216;lms&#8217;. To perform the LDA in the full matrix or only in the correlation matrix.</li>
+<li><strong>ellipses</strong> (<em>float</em>) &#8211; A value representing the estandard deviations for confidence ellipses. By default is set to 2.5 (95% confidence ellipses)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.Power_r">
+<code class="descname">Power_r</code><span class="sig-paren">(</span><em>corr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.Power_r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.Power_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the power of the correlation using the Z&#8217; trasnformation of correlation coefficient:
+Z&#8217;=arctang(r)+r/(2*(n-1)) (see Cohen (1988) p.546). 
+It will return the required n fo the power and significance chosen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>corr</strong> (<em>float</em>) &#8211; Correlation value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.SigCorrOneMatrix">
+<code class="descname">SigCorrOneMatrix</code><span class="sig-paren">(</span><em>sliced</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.SigCorrOneMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.SigCorrOneMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the significance of correlation test according to the method passed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sliced</strong> (:class <cite>numpy.array</cite>) &#8211; an array with single dimensional data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.Sigcorr">
+<code class="descname">Sigcorr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.Sigcorr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.Sigcorr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the correlation is significantly different than 0 with the method specified</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.UseCorr">
+<code class="descname">UseCorr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.UseCorr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.UseCorr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use pearson correlation without a significant test</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.UseCov">
+<code class="descname">UseCov</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.UseCov"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.UseCov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a variance-covariance matrix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.Z_fisher">
+<code class="descname">Z_fisher</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.Z_fisher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.Z_fisher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the sample - corrected Z_alpha for hypotesis testing of Fisher transformation of correlation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.agglomerare_additive">
+<code class="descname">agglomerare_additive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.agglomerare_additive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.agglomerare_additive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Agglomerate landmark dimensions using euclidean distance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMstats.agglomerare_mean">
+<code class="descname">agglomerare_mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats.agglomerare_mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats.agglomerare_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Agglomerate landmark dimensions using average of correlation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Moduler.GMgraph">
+<em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">GMgraph</code><span class="sig-paren">(</span><em>prefix</em>, <em>Matrix</em>, <em>unweighted=False</em>, <em>gfilter=[]</em>, <em>threshold=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a graph based on an input in matrix form and compute modularity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Matrix</strong> (:class <cite>numpy.array</cite> or :class <cite>GMstats</cite>) &#8211; an square matrix where the indices represent intended nodes and the values the relationship between them</li>
+<li><strong>unweighted</strong> (<em>boolean</em>) &#8211; create an unweighted graph as opposed to a weighted (correlation; default) one.</li>
+<li><strong>gfilter</strong> (<em>list of tuples</em>) &#8211; List of tuples corresponding to desired conection of the graph. Each element in pair tuple must correspond to node indices in the graph. This is a topology constraint.</li>
+<li><strong>threshold</strong> (<em>float</em>) &#8211; A float corresponding to the threshold to create a conection between nodes. This is very user dependendent and is set to 0 as default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="Moduler.GMgraph.Build_igraph">
+<code class="descname">Build_igraph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph.Build_igraph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph.Build_igraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a graph, using igraph library. It will return it, and store it as an attribute (self.g)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">:class:: &#8216;igraph.Graph&#8217;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMgraph.Cluster2File">
+<code class="descname">Cluster2File</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph.Cluster2File"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph.Cluster2File" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write cluster to a file and rename the cluster with PDB friendly characters if possible (this is specific use)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMgraph.Get_StructProps">
+<code class="descname">Get_StructProps</code><span class="sig-paren">(</span><em>overall=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph.Get_StructProps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph.Get_StructProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the structural properties in the graph</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>overall</strong> (<em>boolean</em>) &#8211; Calculate the centralities on the full graph, as opposed as by modules ( Default behaviour ).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMgraph.Graph_Cluster">
+<code class="descname">Graph_Cluster</code><span class="sig-paren">(</span><em>method='fastgreedy'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph.Graph_Cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph.Graph_Cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clustering by components comstGreed, using igraph library.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>method</strong> (<em>string.</em>) &#8211; method in igraph ofr community detection. It can be fastgreedy, infomap leading_eigenvector_naive,leading_eigenvector,label_propagation, multilevel, optimal_modularity, edge_betweenness, spinglass, walktrap. For details see igraph documentation.</li>
+<li><strong>kwargs</strong> &#8211; other arguments passed to the igraph methods</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMgraph.Identify_Singletons">
+<code class="descname">Identify_Singletons</code><span class="sig-paren">(</span><em>method='fastgreedy'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph.Identify_Singletons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph.Identify_Singletons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a membership vector identify singletons</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.GMgraph.LDAmerge">
+<code class="descname">LDAmerge</code><span class="sig-paren">(</span><em>which='lms'</em>, <em>ellipses=2.5</em>, <em>dimensions=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph.LDAmerge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph.LDAmerge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform an LDA analisis and merge all classes which 95% confidence ellipses collide.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>which</strong> (<em>string</em>) &#8211; Either &#8216;gm&#8217; or &#8216;lms&#8217;. To perform the LDA in the full matrix or only in the correlation matrix.</li>
+<li><strong>ellipses</strong> (<em>float</em>) &#8211; A value representing the estandard deviations for confidence ellipses. By default is set to 2.5 (95% confidence ellipses)</li>
+<li><strong>dimensions</strong> (<em>integer</em>) &#8211; dimensions of the matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Moduler.SupportClustering">
+<em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">SupportClustering</code><span class="sig-paren">(</span><em>prefix</em>, <em>data</em>, <em>membership</em>, <em>dimensions</em>, <em>permutations</em>, <em>confval=0.95</em>, <em>threshold=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides ways to provide statistical support for a given clustering scheme. It is based in
+testing if the correlation between groups is significatly different than  between groups.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prefix</strong> (<em>string</em>) &#8211; a prefix for the output.</li>
+<li><strong>data</strong> (:class <cite>numpy.ndarray</cite>) &#8211; a 2D numpy array with the data from which the clustering was inferred.</li>
+<li><strong>membership</strong> (<em>list</em>) &#8211; a list equal to the second dimension of data (i.e. data.shape[1]), corresponding to the clustering scheme being tested.</li>
+<li><strong>dimensions</strong> (<em>integer</em>) &#8211; Number of dimensions in your data matrix. If your matrix is correlation or related, dimesions should be one.</li>
+<li><strong>permutations</strong> (<em>integer</em>) &#8211; Number of permutations to perform the permutation t-test.</li>
+<li><strong>confval</strong> (<em>float</em>) &#8211; confidence value for the test (1 - alpha).</li>
+<li><strong>threshold</strong> (<em>float or None</em>) &#8211; Value to filter out values of the correlation. If set to none, no threshold filtering will be done.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="Moduler.SupportClustering.AreModneighbours">
+<code class="descname">AreModneighbours</code><span class="sig-paren">(</span><em>A</em>, <em>indA</em>, <em>indB</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.AreModneighbours"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.AreModneighbours" title="Permalink to this definition">¶</a></dt>
+<dd><p>loop over the adjacency matrix to find if indA and indB are in the neiborhood</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>A</strong> (<em>list</em>) &#8211; a list of tupples of related entries</li>
+<li><strong>indA</strong> (<em>list</em>) &#8211; indices of grup A</li>
+<li><strong>indB</strong> (<em>list</em>) &#8211; indices of grup B</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">boolean of whether or not indA and indB are neighbours</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.BipartitionAgree">
+<code class="descname">BipartitionAgree</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.BipartitionAgree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.BipartitionAgree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether 2 strings of bipartitions agree or conflict. The strings must consist of
+1 and 0 only</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params a,b:</th><td class="field-body">binary bipartition strings to be compared for agreements.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.DealDimensions">
+<code class="descname">DealDimensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.DealDimensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.DealDimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the data has more than one dimension (in the cartesian sense or the origin of the data),
+split it, compute correlation of each dimension and then aggregate it using euclidean distance
+of the coefficients of determination. It assumes that the dimensions are interleaved.
+This correlation does not have a significance testing, use caution.
+It is reccomended to use GMstats class before using this class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.FDR_correction">
+<code class="descname">FDR_correction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.FDR_correction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.FDR_correction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the False Discovery Rate correction for the critical value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.FDRc_sigtest">
+<code class="descname">FDRc_sigtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.FDRc_sigtest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.FDRc_sigtest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the logical significance test using FDR corrected critical value. Returns a binary
+dictionary of the comparisons</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.VectorToEdgeList">
+<code class="descname">VectorToEdgeList</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.VectorToEdgeList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.VectorToEdgeList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a membership vector to a list of edges.
+The membership vector must be a list or space separated string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<em>list</em>) &#8211; a membership vector in list form</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.WriteBoot">
+<code class="descname">WriteBoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.WriteBoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.WriteBoot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write Bootstrap results to screen and file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.bipartition_agreement">
+<code class="descname">bipartition_agreement</code><span class="sig-paren">(</span><em>prefix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.bipartition_agreement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.bipartition_agreement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the local bipartition agreement scores</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.bootstrap">
+<code class="descname">bootstrap</code><span class="sig-paren">(</span><em>boot=0</em>, <em>contacts=[]</em>, <em>unweighted=False</em>, <em>graphmethod='fastgreedy'</em>, <em>lda=False</em>, <em>iterative=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.bootstrap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.bootstrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the bootstrap inferfence. This boostrap resample obsevations (rows) in the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>boot</strong> (<em>integer</em>) &#8211; Number of bootstrap replicates to be performed</li>
+<li><strong>contacts</strong> (<em>list</em>) &#8211; filter out non-contact interactions. Contacts passed as list of tuples</li>
+<li><strong>unweighted</strong> (<em>boolean</em>) &#8211; create an unweighted graph as opposed to a weighted (correlation; default) one.</li>
+<li><strong>graphmethod</strong> &#8211; method in igraph ofr community detection. It can be fastgreedy, infomap leading_eigenvector_naive,leading_eigenvector,label_propagation, multilevel, optimal_modularity, edge_betweenness, spinglass, walktrap. For details see igraph documentation.</li>
+<li><strong>lda</strong> (<em>boolean</em>) &#8211; Use LDA to premerge the community detection clusters</li>
+<li><strong>kwargs</strong> &#8211; parameter and arguments for GMstats class in the method Compute_correlations</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.filter_singletons">
+<code class="descname">filter_singletons</code><span class="sig-paren">(</span><em>D</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.filter_singletons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.filter_singletons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Giving a dictionary with cluster indices, return whichones are singletons</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>D</strong> (<em>dictionary</em>) &#8211; a dictionary with cluster indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a dictionary with the indices of unconnected nodes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.get_cluster_indices">
+<code class="descname">get_cluster_indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.get_cluster_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.get_cluster_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with cluster indices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.if_bootfile">
+<code class="descname">if_bootfile</code><span class="sig-paren">(</span><em>boot=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.if_bootfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.if_bootfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>if another bootsrap intance has been called and crashed, this function will finished
+the remaining and / or compute the agreement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>boot</strong> (<em>integer</em>) &#8211; Number of bootstrap replicates to be performed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.iterative_permt">
+<code class="descname">iterative_permt</code><span class="sig-paren">(</span><em>filterin</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.iterative_permt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.iterative_permt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a permutation test iteratively, until a stable membership vector is reached. In each iteration
+a permutation test is performed between the clusters, and a merge event will happen if no evidence of
+difference is found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filterin</strong> (<em>list</em>) &#8211; a list of tuples of pairs of variable to be inlcuded (i.e. adjacency list if mem was provided by a graph)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.permt">
+<code class="descname">permt</code><span class="sig-paren">(</span><em>filterin</em>, <em>count=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.permt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.permt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the permutation test over all pairs of classes in the membership vector provided</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filterin</strong> (<em>list</em>) &#8211; a list of tuples of pairs of variable to be inlcuded (i.e. adjacency list if mem was provided by a graph)</li>
+<li><strong>count</strong> (<em>string or integer</em>) &#8211; Step in which this function has been called. Is for Iterative usage.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.subsetTest">
+<code class="descname">subsetTest</code><span class="sig-paren">(</span><em>k1</em>, <em>k2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.subsetTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.subsetTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a series of indices, split the data into intra and inter correlation
+and test for equality</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>subsetdata</strong> &#8211; </li>
+<li><strong>k1</strong> (<em>string or integer</em>) &#8211; Name of one of the clusters being compared</li>
+<li><strong>k2</strong> (<em>string or integer</em>) &#8211; Name of the other clusters being compared</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.twotPermutation">
+<code class="descname">twotPermutation</code><span class="sig-paren">(</span><em>x1</em>, <em>x2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.twotPermutation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.twotPermutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function computes the p-value for the two sample t-test using a permutation test.
+This is a translation from the DAAG Package function with the same name.
+:param x1: First array (sample) to be compared
+:type x1: :class <cite>numpy.ndarray</cite>
+:param x2: Second array (sample) to be compared
+:type x2: :class <cite>numpy.ndarray</cite>
+:param nsim: number of simulations to run ro compute the ovalue
+:type nsim: integer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Moduler.SupportClustering.write_permt">
+<code class="descname">write_permt</code><span class="sig-paren">(</span><em>newm</em>, <em>count=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering.write_permt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering.write_permt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write and print the output of the permutation test, the new membership vector, and do some 
+cleanup</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="auxiliary-methods">
+<h2>Auxiliary methods:<a class="headerlink" href="#auxiliary-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Moduler.isFloat">
+<code class="descclassname">Moduler.</code><code class="descname">isFloat</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#isFloat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.isFloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auxiliary function to test if a string is a float</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<em>str</em>) &#8211; The string to be tested</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.rename_clusters">
+<code class="descclassname">Moduler.</code><code class="descname">rename_clusters</code><span class="sig-paren">(</span><em>newcl</em>, <em>mem</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#rename_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.rename_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename clusters using the smallest label in each set. Returns the new
+membership vector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>newcl</strong> (<em>list</em>) &#8211; a list with the new membership before renaming</li>
+<li><strong>mem</strong> (<em>list</em>) &#8211; original membership vector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A list with the renamed vector</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.equiclus">
+<code class="descclassname">Moduler.</code><code class="descname">equiclus</code><span class="sig-paren">(</span><em>merge</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#equiclus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.equiclus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for equivalent clusters, and return a list with sets of equivalent clusters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>merge</strong> (<em>list</em>) &#8211; list of tuples with the pairs of classes to be merged</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">cleaned membership vector as a list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.ellipse">
+<code class="descclassname">Moduler.</code><code class="descname">ellipse</code><span class="sig-paren">(</span><em>singlegroupx</em>, <em>singlegroupy</em>, <em>std=2.5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#ellipse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.ellipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an ellipse given points with x coordinates in singlegroupx and singlegroupy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>singlegroupx</strong> (:class <cite>numpy.array</cite>) &#8211; An array with the x coordinates of data for what the ellipse is to be built.</li>
+<li><strong>singlegroupy</strong> (:class <cite>numpy.array</cite>) &#8211; An array with the y coordinates of data for what the ellipse is to be built.</li>
+<li><strong>std</strong> (<em>float</em>) &#8211; The standard deviation of the confidence ellipse. By default is set to 2.5 (95% confidence ellipse)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a :class <cite>matplotlib.patches.Ellipse</cite> object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.pointsInEllipse">
+<code class="descclassname">Moduler.</code><code class="descname">pointsInEllipse</code><span class="sig-paren">(</span><em>Xs</em>, <em>Ys</em>, <em>ellipse</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#pointsInEllipse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.pointsInEllipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests which set of points are within the boundaries defined by the ellipse. The set of points
+are defined in two arrays Xs and Ys for the x-coordinates and y-coordinates respectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params Xs:</th><td class="field-body">x-coordinates of a set of points</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Params Ys:</th><td class="field-body">y-coordinates of a set of points</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ellipse</strong> (:class <cite>matplotlib.patches.Ellipse</cite>) &#8211; instance of method ellipse</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Tuple of two list, points inside and outside of the ellipse</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.getEllipses">
+<code class="descclassname">Moduler.</code><code class="descname">getEllipses</code><span class="sig-paren">(</span><em>fit</em>, <em>membership</em>, <em>std=2.5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#getEllipses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.getEllipses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the ellipses dictionary with as many ellipses as components in membership.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fit</strong> (:class <cite>numpy.array</cite>) &#8211; An array normally computed by LDA or other method</li>
+<li><strong>std</strong> (<em>float</em>) &#8211; The standard deviation of the confidence ellipse. By default is set to 2.5 (95% confidence ellipse)</li>
+<li><strong>membership</strong> (<em>list</em>) &#8211; A list corresponding to memberships of the entries in data.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A dictionary with Ellipse objects with membership as keys.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.EllipseOverlap">
+<code class="descclassname">Moduler.</code><code class="descname">EllipseOverlap</code><span class="sig-paren">(</span><em>ellipse1</em>, <em>ellipse2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#EllipseOverlap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.EllipseOverlap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find collisions between ellipses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ellipse1</strong> (:class <cite>matplotlib.patches.Ellipse</cite>) &#8211; Matplotlib ellipse</li>
+<li><strong>ellipse2</strong> (:class <cite>matplotlib.patches.Ellipse</cite>) &#8211; Matplotlib ellipse</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Boolean of whether or not two ellipses collide</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.Specificity">
+<code class="descclassname">Moduler.</code><code class="descname">Specificity</code><span class="sig-paren">(</span><em>ref</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#Specificity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.Specificity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute specificity from two edgelists (list of edges between nodes/labes)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ref</strong> (<em>list</em>) &#8211; Reference edgelist</li>
+<li><strong>test</strong> (<em>list</em>) &#8211; Test edgelist</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.Sensitivity">
+<code class="descclassname">Moduler.</code><code class="descname">Sensitivity</code><span class="sig-paren">(</span><em>ref</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#Sensitivity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.Sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute sensitivity from two edgelists (list of edges between nodes/labes)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ref</strong> (<em>list</em>) &#8211; Reference edgelist</li>
+<li><strong>test</strong> (<em>list</em>) &#8211; Test edgelist</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.Fscore">
+<code class="descclassname">Moduler.</code><code class="descname">Fscore</code><span class="sig-paren">(</span><em>sp</em>, <em>sn</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#Fscore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.Fscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the F-score</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sp</strong> (<em>float</em>) &#8211; Specificity value</li>
+<li><strong>sn</strong> (<em>float</em>) &#8211; Sensitivity value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Moduler.clus2list">
+<code class="descclassname">Moduler.</code><code class="descname">clus2list</code><span class="sig-paren">(</span><em>membership</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#clus2list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.clus2list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Giving a membership vector and data, split the data into cluster specific arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>membership</strong> (<em>list or string</em>) &#8211; a membership vector</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documentation</a><ul>
+<li><a class="reference internal" href="#auxiliary-methods">Auxiliary methods:</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Tutorial.html" title="previous chapter">Tutorial</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Doc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jose Sergio Hleap.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/Doc.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
