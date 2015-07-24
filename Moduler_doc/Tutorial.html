@@ -41,7 +41,178 @@
             
   <div class="section" id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>Aqui va el turorial que no he realizado todavia</p>
+<div class="section" id="installing-moduler">
+<h2>Installing Moduler<a class="headerlink" href="#installing-moduler" title="Permalink to this headline">¶</a></h2>
+<p>While the PyPy version is not ready yet, clone <cite>this&lt;https://github.com/jshleap/Moduler&gt;</cite> github repository through:</p>
+<blockquote>
+<div>&gt;git clone <a class="reference external" href="https://github.com/jshleap/Moduler">https://github.com/jshleap/Moduler</a></div></blockquote>
+<p>Once done, export the path where you downloaded Moduler to your python path. To do this in UBUNTU modify the .bashrc in your home directory and add the line:</p>
+<blockquote>
+<div>export PYTHONPATH=$PYTHONPATH:/path/to/Moduler/</div></blockquote>
+<p>Once you save the changes, reopen a terminal or source the file.</p>
+<p>With the set python path, all the classes and functions in Moduler are available to import within python.</p>
+</div>
+<div class="section" id="using-moduler-py-as-script">
+<h2>Using Moduler.py as script<a class="headerlink" href="#using-moduler-py-as-script" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s imagine that you have a shape file of extension GM. This shape file will contain coordiantes
+(variables) separated by semicolons. Also, the first field contains a &gt; and a name:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;ANYNAME;11.062500;72.072500;10.336000;7.428200;68.951200;11.464200;7.796250;68.790250
+</pre></div>
+</div>
+<p>In this case, the shape ANYNAME is defined by 8 variables. Normally those variables are cartesian
+coordinates in most biological shapes (either 2D or 3D), but you will need to provide the dimensions
+since you can also have non cartesian coordinates. An example of that will be analysing a protein
+structure with hydrophobicity. The forth dimension hydrophobicity can be included in the GM file,
+and provide as number of dimension the number 4.</p>
+<div class="section" id="getting-help-from-moduler-py">
+<h3>Getting help from Moduler.py<a class="headerlink" href="#getting-help-from-moduler-py" title="Permalink to this headline">¶</a></h3>
+<p>Simply type:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py -h
+</pre></div>
+</div>
+<p>Replacing /path/to/Moduler with the actual path to the executable.</p>
+<p>This should give you something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage: Moduler.py &lt;prefix&gt; [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -o, --covariance      Use covariance instead of correlation to build the
+                        graph. If this option is not
+                        provided the program will use correlation by default.
+  -a, --mean            Use the mean of the correlation in each dimension
+                        instead of the euclidean distance to aglomerate
+                        the dimensions. The default behaviour is additive.
+  -t THRESHOLD, --threshold=THRESHOLD
+                        Set the threshold for edge assingment to the value
+                        provided. Otherwise is set to 0.
+                        An extra option is Auto which will calculate the
+                        treshold based on the mean standard deviation of the
+                        agglomerated dimensions matrix.
+  -p POWER, --power=POWER
+                        Perform a power analysis with this value as the
+                        desired Power (1-type II error). Default: 0.8
+  -m METHOD, --method=METHOD
+                        Test the significance of the correlation by the method
+                        provided(pearson, spearman,
+                        kendall or fisher). The latter is the fisher
+                        transformation of the pearson correlation. If no test
+                        needed False should be provided.
+  -i CONFVAL, --confidencelevel=CONFVAL
+                        Define the confidence level (1-alpha) for the
+                        correlation test.                          Default:
+                        0.95.
+  -d DIMENSIONS, --dimensions=DIMENSIONS
+                        Set the dimensions of the shape. Default: 3.
+  -c, --contact         Use the all-atom contact matrix when assigning edges.
+                        Default: False.
+  -u, --absolute        Use absolute values of the correlation matrix.
+                        Default: False.
+  -n PERM, --permtest=PERM
+                        Test the significance of clustering with N
+                        permutations. When 0 is passed, no permutation
+                        test is performed.
+  -I, --iterative       Iterative (until convergence) test the significance of
+                        clustering with permutations
+                        being passed through permtest.
+  -w WRITEMAT, --matrix=WRITEMAT
+                        Write to file the matrix of the option chosen. It can
+                        be either cor (which will print
+                        the correlation matrix for each dimension), or agg
+                        will write to a file the
+                        agglomerated dimensions matrix.
+  -f OVERALL, --fullcentrality=OVERALL
+                        Use this if you want to calculate the centralities on
+                        the full graph, as opposed as by
+                        modules ( Default behaviour ).
+  -B BOOT, --bootstrap=BOOT
+                        Compute bootstrap for sample reliability estimation.
+  -l, --lda             Use LDA to premerge the community detection clusters
+  -G GRAPHMETHOD, --graph=GRAPHMETHOD
+                        Use one of igraph methods for community detection
+                        inference. By default is fastgreedy
+                        but it can take: infomap, leading_eigenvector_naive,
+                        leading_eigenvector, label_propagation,
+                        multilevel, optimal_modularity, edge_betweenness,
+                        spinglass, walktrap. For details see igraph
+                        documentation.
+  -C MAPMODULES, --mapmodules=MAPMODULES
+                        Map the Modules in the PDB provided. The PDB and chain
+                        in which to map, have to be provided
+                        comma separated. IT ONLY WORKS ON PROTEIN STRUCTURES
+</pre></div>
+</div>
+</div>
+<div class="section" id="exploring-protein-structure-modularity">
+<h3>Exploring protein structure modularity<a class="headerlink" href="#exploring-protein-structure-modularity" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s assume that you have aligned a set of proteins and the coordinates for the completely homologous
+residues (columns with no gaps) are stored in a file called protein.gm. You want to retrieve a
+clustering of residues, then you can type:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py proteins
+</pre></div>
+</div>
+<p>In this case the fisher transformation for pearson correlation is used to compute the relationship
+between your variables. Since you did not pass a threshold, the default is 0, so anything greater
+than zero is going to be taking into account. Be aware that this set up will disregard negative
+correlation regardless of its significance. Since Power has a non-zero default value, It will always
+return a file with the power analysis performed.</p>
+<p>Now, let&#8217;s imagine that you want clusters that are sinificant and you want information about the
+power of each cluster. For this you need to type:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py proteins -n 999
+</pre></div>
+</div>
+<p>In this case, each pair of clusters are tested for significance. If they are not significantly similar
+the clusters will be merged.</p>
+<p>However, we still will like to know if the newly merged cluster is significant. In that case you type:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py proteins -n 999 -I
+</pre></div>
+</div>
+<p>This will iteratively test pairs of clusters and merge them until the membership vector converge to an
+stable answer.</p>
+<p>This set up for proteins will create clusters that might not necesarily be in contact. However,
+sometimes we would like to explore when they are. the -c option allow you to filter out non-contacts.
+You can do this in two ways:</p>
+<ol class="arabic">
+<li><p class="first">Provide a contact file &lt;prefix&gt;.contacs (protein.contacts in this example) that is of the from:</p>
+<div class="highlight-python"><div class="highlight"><pre>(0,1)
+(0,172)
+(0,174)
+    .
+    .
+    .
+(179,174)
+(179,138)
+(179,173)
+</pre></div>
+</div>
+</li>
+</ol>
+<p>2. Let PDBnet (one of the dependencies) to handle this for you. Currently (as july 2015) this is very
+slow.</p>
+<p>Anyhow, no matter what approach you use, if you want significant clusters restricted to
+neighborhing positions you do:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py proteins -n 999 -I -c
+</pre></div>
+</div>
+<p>Now, imposing contacts contraints in the correlation networks might create overfragmentation as shown
+in <cite>Hleap and Blouin &lt;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0113438&gt;</cite>. To
+avoid this, one can use the -l option to apply the author&#8217;s approach of premerging overfragmented
+clusters. If one wants also to compute 100 boostrap (by samples) support, then we write:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py proteins -n 999 -I -c -l -B 100
+</pre></div>
+</div>
+<p>Finally, since our example is in protein structures, we can map the modules onto the structure. For
+this we need a pdb and the chain/model in which to map it. Let&#8217;s assume that we have protein.pdb and
+chain A exist in it. the command will be:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;python /path/to/Moduler/Moduler.py proteins -n 999 -I -c -l -B 100 -C protein.pdb,A
+</pre></div>
+</div>
+<p>That&#8217;s all folks!!</p>
+</div>
+</div>
+<div class="section" id="importing-and-working-with-moduler-classes">
+<h2>Importing and working with Moduler classes<a class="headerlink" href="#importing-and-working-with-moduler-classes" title="Permalink to this headline">¶</a></h2>
+<p>In Construction... most likely helped by Jack James Thomas Ryan.</p>
+</div>
 </div>
 
 
@@ -49,7 +220,21 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tutorial</a><ul>
+<li><a class="reference internal" href="#installing-moduler">Installing Moduler</a></li>
+<li><a class="reference internal" href="#using-moduler-py-as-script">Using Moduler.py as script</a><ul>
+<li><a class="reference internal" href="#getting-help-from-moduler-py">Getting help from Moduler.py</a></li>
+<li><a class="reference internal" href="#exploring-protein-structure-modularity">Exploring protein structure modularity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#importing-and-working-with-moduler-classes">Importing and working with Moduler classes</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>

@@ -40,6 +40,11 @@
             
   <div class="section" id="documentation">
 <h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="class-gmdata">
+<h3>Class GMdata:<a class="headerlink" href="#class-gmdata" title="Permalink to this headline">¶</a></h3>
+<p>Handling gm files</p>
 <dl class="class">
 <dt id="Moduler.GMdata">
 <em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">GMdata</code><span class="sig-paren">(</span><em>prefix</em>, <em>dimension=3</em>, <em>t='gm'</em>, <em>asdistance=False</em>, <em>contacts=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMdata" title="Permalink to this definition">¶</a></dt>
@@ -93,6 +98,10 @@ with row names in the first field.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="class-gmstats">
+<h3>Class GMstats:<a class="headerlink" href="#class-gmstats" title="Permalink to this headline">¶</a></h3>
+<p>Diverse statistical test and correlation estimation.</p>
 <dl class="class">
 <dt id="Moduler.GMstats">
 <em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">GMstats</code><span class="sig-paren">(</span><em>prefix</em>, <em>matrix</em>, <em>dimensions</em>, <em>sample_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMstats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMstats" title="Permalink to this definition">¶</a></dt>
@@ -249,6 +258,10 @@ It will return the required n fo the power and significance chosen.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="class-gmgraph">
+<h3>Class GMgraph:<a class="headerlink" href="#class-gmgraph" title="Permalink to this headline">¶</a></h3>
+<p>Graph theory based clustering</p>
 <dl class="class">
 <dt id="Moduler.GMgraph">
 <em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">GMgraph</code><span class="sig-paren">(</span><em>prefix</em>, <em>Matrix</em>, <em>unweighted=False</em>, <em>gfilter=[]</em>, <em>threshold=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#GMgraph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.GMgraph" title="Permalink to this definition">¶</a></dt>
@@ -346,6 +359,10 @@ It will return the required n fo the power and significance chosen.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="class-supportclustering">
+<h3>Class SupportClustering:<a class="headerlink" href="#class-supportclustering" title="Permalink to this headline">¶</a></h3>
+<p>Suite of statistical analysis to support membership vectors.</p>
 <dl class="class">
 <dt id="Moduler.SupportClustering">
 <em class="property">class </em><code class="descclassname">Moduler.</code><code class="descname">SupportClustering</code><span class="sig-paren">(</span><em>prefix</em>, <em>data</em>, <em>membership</em>, <em>dimensions</em>, <em>permutations</em>, <em>confval=0.95</em>, <em>threshold=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#SupportClustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.SupportClustering" title="Permalink to this definition">¶</a></dt>
@@ -590,8 +607,47 @@ cleanup</p>
 
 </dd></dl>
 
+</div>
+</div>
 <div class="section" id="auxiliary-methods">
-<h2>Auxiliary methods:<a class="headerlink" href="#auxiliary-methods" title="Permalink to this headline">¶</a></h2>
+<h2>Auxiliary methods<a class="headerlink" href="#auxiliary-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Moduler.main">
+<code class="descclassname">Moduler.</code><code class="descname">main</code><span class="sig-paren">(</span><em>prefix</em>, <em>dimensions=3</em>, <em>contacts=False</em>, <em>additive=True</em>, <em>method='fisher'</em>, <em>confval=0.95</em>, <em>power=0.8</em>, <em>absolutecov=False</em>, <em>usecov=False</em>, <em>graphmethod='fastgreedy'</em>, <em>threshold=0.0</em>, <em>writemat=False</em>, <em>overall=False</em>, <em>lda=False</em>, <em>perm=0</em>, <em>iterative=True</em>, <em>mapmodules=False</em>, <em>morph=False</em>, <em>boot=0</em>, <em>mc=None</em>, <em>unweighted=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the code Moduler as __main__</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prefix</strong> (<em>string</em>) &#8211; Prefix of your GM file and accompanying files. Also will be use for output files</li>
+<li><strong>dimensions</strong> (<em>integer</em>) &#8211; The number of cartesian dimensions to be analyzed. By default is set to 3.</li>
+<li><strong>contacts</strong> (<em>boolean</em>) &#8211; Constrain the graph to only things that are in contact. If True it will look for a file with &#8216;.contact&#8217; extension.If the file cannot be found it will look for a PDB file named &lt;prefix&gt;.pdb, and will try to compute the contacts from :class PDBstructure. If the pdb cannot be found it will raise an exception.</li>
+<li><strong>additive</strong> (<em>boolean</em>) &#8211; Use the mean of the correlation in each dimension instead of the euclidean distance to aglomerate the dimensions. The default behaviour is additive.</li>
+<li><strong>method</strong> (<em>string</em>) &#8211; Which method to use for correlation. By default it uses the fisher transformation. Available options are pearson, spearman and fisher.</li>
+<li><strong>confval</strong> (<em>float</em>) &#8211; Define the confidence level (1-alpha) for the correlation test. By default is 0.95. Can take any float value between 0 and 1.</li>
+<li><strong>power</strong> (<em>float</em>) &#8211; Perform a statistical power analysis with this value as the desired Power (1-type II error). by default 0.8 is used. Can be any float from 0 to 1</li>
+<li><strong>absolutecov</strong> (<em>boolean</em>) &#8211; Whether or not to use absolute values of the correlation matrix</li>
+<li><strong>usecov</strong> (<em>boolean</em>) &#8211; Use covariance instead of correlation</li>
+<li><strong>graphmethod</strong> (<em>string</em>) &#8211; Method to seach for the partition of the graph. By default is fastgreedy. Refer to igraph documentation in community method for other options.</li>
+<li><strong>threshold</strong> (<em>float</em>) &#8211; A float corresponding to the threshold to create a conection between nodes. This is very user dependendent and is set to 0 as default.</li>
+<li><strong>writemat</strong> (<em>boolean</em>) &#8211; Write correlation/covariance matrices to file. By default is false. It can take a False, for the aggreatated matrix or cor for the correlation matrix.</li>
+<li><strong>overall</strong> (<em>boolean</em>) &#8211; Calculate the centralities on the full graph, as opposed as by modules (Default behaviour).</li>
+<li><strong>lda</strong> (<em>boolean</em>) &#8211; Use LDA to premerge the community detection clusters</li>
+<li><strong>perm</strong> (<em>integer</em>) &#8211; number of permutation for the significance tests</li>
+<li><strong>iterative</strong> (<em>boolean</em>) &#8211; whether to perform significance test among clusters iteratevely until estabilization of the cluster.</li>
+<li><strong>mapmodules</strong> (<em>string</em>) &#8211; Map the Modules in a PDB provided. The PDB and chain in which to map, have to be provided comma separated.</li>
+<li><strong>morph</strong> (<em>boolean</em>) &#8211; Use this if you want to estimate the modularity of morphological data. Basically it will create a dummy landmark file.</li>
+<li><strong>boot</strong> &#8211; Compute bootstrap for sample reliability estimation</li>
+<li><strong>mc</strong> (<em>opened file</em>) &#8211; a file handle from Master_of_Ceremony mathod.</li>
+<li><strong>unweighted</strong> (<em>boolean</em>) &#8211; create an unweighted graph as opposed to a weighted (correlation; default) one.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="function">
 <dt id="Moduler.isFloat">
 <code class="descclassname">Moduler.</code><code class="descname">isFloat</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Moduler.html#isFloat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Moduler.isFloat" title="Permalink to this definition">¶</a></dt>
@@ -810,7 +866,14 @@ are defined in two arrays Xs and Ys for the x-coordinates and y-coordinates resp
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Documentation</a><ul>
-<li><a class="reference internal" href="#auxiliary-methods">Auxiliary methods:</a></li>
+<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#class-gmdata">Class GMdata:</a></li>
+<li><a class="reference internal" href="#class-gmstats">Class GMstats:</a></li>
+<li><a class="reference internal" href="#class-gmgraph">Class GMgraph:</a></li>
+<li><a class="reference internal" href="#class-supportclustering">Class SupportClustering:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#auxiliary-methods">Auxiliary methods</a></li>
 </ul>
 </li>
 </ul>
