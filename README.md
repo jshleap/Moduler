@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 E-mail: jshleap@dal.ca
 
 
-In this version the the R dependencies have been extracted, and with them the RV coefficient test.
+In this version the the R dependencies have been extracted, and with them the RV coefficient test. In the near future it will be available in PyPy, so all the dependencies are sorted out.
 
 Requirements:
 =============
